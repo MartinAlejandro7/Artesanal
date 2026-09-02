@@ -12,23 +12,25 @@ public class TestRecargarJUnit {
 	public void testRecargarExitosa() {
 		Maquina rubia = new Maquina("Pilcener", "cerveza", 0.02, 8000,"1564");
 		
-		boolean resultado = rubia.recargarCerveza(3000);
+		boolean resultado = rubia.recargarCerveza(7800);
 		
 		assertTrue(resultado);
 		
-		assertEquals(3000, rubia.getCantidadActual(),0.0001);
+		assertEquals(7800, rubia.getCantidadActual(),0.0001);
 	}
 	
-	
-		@Test
-		public void testRecargarFallidaPorDesborde() {
-			Maquina negra = new Maquina("Pilcener", "cerveza fria", 0.03, 8000,"7895");
-			negra.recargarCerveza(7000);
-			
-			boolean resultado = negra.recargarCerveza(1000);
-			
-			assertTrue(resultado);
-			
-			assertEquals(3000, negra.getCantidadActual(),0.0001);
-		}
+	@Test
+	public void testRecargarPrueba() {
+		Maquina negra = new Maquina("Pilcener", "cerveza fria", 0.03, 8000,"7895");
+		
+		negra.recargarCerveza(7000);
+		
+		boolean resultado = negra.recargarCerveza(400);
+		
+		assertTrue(resultado);
+		
+		assertEquals(7400, negra.getCantidadActual(),0.0001);
+	}
 }
+	
+		

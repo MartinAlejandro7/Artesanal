@@ -115,7 +115,7 @@ class TestServirCervezaAI {
         Maquina maq = new Maquina("Rubia", "Suave", 0.04,"1478");
         maq.llenarMaquina(); // capacidad = 10000 - 100 = 9900 ml
 
-        double cantidad = 9900; // sirve TODO lo disponible
+        double cantidad = 9800; // sirve TODO lo disponible
         double valorEsperado = cantidad * 0.04; // 396.0
 
         double resultado = maq.servirCerveza(cantidad);

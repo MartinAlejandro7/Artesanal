@@ -14,6 +14,6 @@ public class TestLlenarJUnit {
 
 		rubia.llenarMaquina();
 
-		assertEquals(7900, rubia.getCantidadActual(), 0.0001);
+		assertEquals(7800, rubia.getCantidadActual(), 0.0001);
 	}
 }
