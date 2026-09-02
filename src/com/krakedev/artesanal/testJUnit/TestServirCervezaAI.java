@@ -20,7 +20,7 @@ class TestServirCervezaAI {
     @Test
     void testServirCantidadExactaDisponible() {
         // Usamos constructor con capacidad personalizada
-        Maquina maq = new Maquina("Pilsen", "Suave", 0.05, 5000);
+        Maquina maq = new Maquina("Pilsen", "Suave", 0.05, 5000, "7895");
         maq.llenarMaquina(); // deja cantidadActual = 4900 ml
 
         double cantidadSolicitada = 1000;
@@ -42,7 +42,7 @@ class TestServirCervezaAI {
     @Test
     void testServirCantidadMenorDisponible() {
         // Usamos constructor con capacidad por defecto (10000 ml)
-        Maquina maq = new Maquina("IPA", "Amarga", 0.08);
+        Maquina maq = new Maquina("IPA", "Amarga", 0.08, "1234");
         maq.recargarCerveza(2000); // carga 2000 ml
 
         double cantidadSolicitada = 800;
@@ -61,7 +61,7 @@ class TestServirCervezaAI {
     // --------------------------------------------------------------------
     @Test
     void testCantidadInsuficienteRetornaCero() {
-        Maquina maq = new Maquina("Stout", "Oscura", 0.06, 3000);
+        Maquina maq = new Maquina("Stout", "Oscura", 0.06, 3000, "7564");
         maq.recargarCerveza(500); // disponible: 500 ml
 
         double cantidadSolicitada = 600; // mayor a lo que hay
@@ -80,7 +80,7 @@ class TestServirCervezaAI {
     @Test
     void testMaquinaVaciaRetornaCero() {
         // Constructor sin llenar → cantidadActual = 0
-        Maquina maq = new Maquina("Trigo", "Clara", 0.07, 8000);
+        Maquina maq = new Maquina("Trigo", "Clara", 0.07, 8000,"4569");
 
         double resultado = maq.servirCerveza(100);
 
@@ -95,7 +95,7 @@ class TestServirCervezaAI {
     // --------------------------------------------------------------------
     @Test
     void testServirCantidadCero() {
-        Maquina maq = new Maquina("Roja", "Tostada", 0.10);
+        Maquina maq = new Maquina("Roja", "Tostada", 0.10,"2589");
         maq.recargarCerveza(1500);
         double cantidadEsperada = maq.getCantidadActual(); // sigue igual
 
@@ -112,7 +112,7 @@ class TestServirCervezaAI {
     @Test
     void testServirConConstructorDosParametros() {
         // Constructor: nombre, descripcion, precio → capacidad 10000 por defecto
-        Maquina maq = new Maquina("Rubia", "Suave", 0.04);
+        Maquina maq = new Maquina("Rubia", "Suave", 0.04,"1478");
         maq.llenarMaquina(); // capacidad = 10000 - 100 = 9900 ml
 
         double cantidad = 9900; // sirve TODO lo disponible

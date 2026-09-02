@@ -10,7 +10,7 @@ import com.krakedev.artesanal.Maquina;
 public class TestRecargarJUnit {
 	@Test
 	public void testRecargarExitosa() {
-		Maquina rubia = new Maquina("Pilcener", "cerveza", 0.02, 8000);
+		Maquina rubia = new Maquina("Pilcener", "cerveza", 0.02, 8000,"1564");
 		
 		boolean resultado = rubia.recargarCerveza(3000);
 		
@@ -22,7 +22,7 @@ public class TestRecargarJUnit {
 	
 		@Test
 		public void testRecargarFallidaPorDesborde() {
-			Maquina negra = new Maquina("Pilcener", "cerveza fria", 0.03, 8000);
+			Maquina negra = new Maquina("Pilcener", "cerveza fria", 0.03, 8000,"7895");
 			negra.recargarCerveza(7000);
 			
 			boolean resultado = negra.recargarCerveza(1000);

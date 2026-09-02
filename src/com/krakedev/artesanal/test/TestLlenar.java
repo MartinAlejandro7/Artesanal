@@ -6,7 +6,7 @@ public class TestLlenar {
 
 	public static void main(String[] args) {
 		
-		Maquina rubia = new Maquina ("Pilsener","Cerveza Caliente",0.02, 8000);
+		Maquina rubia = new Maquina ("Pilsener","Cerveza Caliente",0.02, 8000,"1852");
 		
 		rubia.imprimir();
 		
@@ -14,7 +14,7 @@ public class TestLlenar {
 		
 		rubia.imprimir();
 		
-		Maquina negra = new Maquina ("Corona","tu corona fav",0.03);
+		Maquina negra = new Maquina ("Corona","tu corona fav",0.03,"7895");
 		
 		negra.imprimir();
 		
