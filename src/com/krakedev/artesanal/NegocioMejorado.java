@@ -19,5 +19,29 @@ public class NegocioMejorado {
 		return "M-" + numero;
 	}
 	
+	public void agregarMaquina(String nombreCerveza, String descripcion, double precioMl) {
+		String codigo = generarCodigo();
+		Maquina maquina = new Maquina(nombreCerveza, descripcion, precioMl, codigo);
+		maquinas.add(maquina);
+		
+	}
+	
+	public void cargarMaquina() {
+		
+		for(int i = 0; i<maquinas.size();i++) {
+			maquinas.get(i).llenarMaquina();
+		}
+		
+	}
+	
+	public Maquina recuperarMaquina(String codigo) {
+		
+		for(int i = 0; i<maquinas.size(); i++) {
+			if(maquinas.get(i).getCodigo().equals(codigo)) {
+				return maquinas.get(i);
+			}
+		}
+		return null;
+	}
 	
 }
