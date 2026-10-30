@@ -16,7 +16,7 @@ public class TestConsumoCliente {
 
 		Negocio barDeMoe = new Negocio("BARDEMOE", maquinaA);
 
-		Cliente cliente = new Cliente("Homero", "17587814");
+		Cliente cliente = new Cliente("Homero", "17587814","C");
 
 		barDeMoe.cargarMaquinaA();
 

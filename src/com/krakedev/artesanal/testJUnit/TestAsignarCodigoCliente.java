@@ -13,9 +13,9 @@ public class TestAsignarCodigoCliente {
 		
 		Negocio barDeMoe = new Negocio();
 		
-		Cliente simsong = new Cliente("Simsong", "17587814");
+		Cliente simsong = new Cliente("Simsong", "17587814", "C");
 			
-		Cliente bart = new Cliente("Bart", "175944"); 
+		Cliente bart = new Cliente("Bart", "175944", "C"); 
 		
 		barDeMoe.asignarCodigoCliente(simsong);
 		barDeMoe.asignarCodigoCliente(bart);
