@@ -19,10 +19,17 @@ public class NegocioMejorado {
 		return "M-" + numero;
 	}
 	
-	public void agregarMaquina(String nombreCerveza, String descripcion, double precioMl) {
-		String codigo = generarCodigo();
-		Maquina maquina = new Maquina(nombreCerveza, descripcion, precioMl, codigo);
-		maquinas.add(maquina);
+	public boolean agregarMaquina(String nombreCerveza, String descripcion, double precioMl, String codigo) {
+		
+		
+		if(recuperarMaquina(codigo) != null) {
+			return false;
+		}
+		Maquina maquina = new Maquina(nombreCerveza, descripcion, precioMl,codigo);
+
+	    maquinas.add(maquina);
+
+	    return true;
 		
 	}
 	
