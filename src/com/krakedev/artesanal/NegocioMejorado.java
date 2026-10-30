@@ -105,4 +105,13 @@ public class NegocioMejorado {
 	    cliente.setTotalConsumido(total);
 
 	}
+	
+	public double consultarValorVendido() {
+		double totalVendido = 0;
+		
+		for(int i = 0; i < clientes.size(); i++) {
+			totalVendido = totalVendido + clientes.get(i).getTotalConsumido();
+		}
+		return totalVendido;
+	}
 }
