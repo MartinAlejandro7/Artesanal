@@ -12,7 +12,7 @@ public class Cliente {
 	public Cliente(String nombre, String cedula, String codigo) {
 		this.nombre = nombre;
 		this.cedula = cedula;
-		
+		this.codigo = Integer.parseInt(codigo.replace("C-", ""));
 	}
 	public String getNombre() {
 		return nombre;

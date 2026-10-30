@@ -1,11 +1,13 @@
 package com.krakedev.artesanal.testJUnit;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import com.krakedev.artesanal.Cliente;
 import com.krakedev.artesanal.Maquina;
 import com.krakedev.artesanal.NegocioMejorado;
 
@@ -43,4 +45,30 @@ public class TestGenerarCodigo {
 
 	    assertFalse(resultado);
 	}
+	
+
+	@Test
+	public void probarConsumoCerveza() {
+
+	    NegocioMejorado negocio = new NegocioMejorado();
+
+	    negocio.registrarCliente("Alejandro", "1723456789");
+
+	    negocio.agregarMaquina("Artesanal", "Cerveza artesanal", 0.05, "M-1");
+
+	    negocio.cargarMaquina();
+
+	    Cliente cliente = negocio.buscarClientePorCodigo(100);
+
+	    Maquina maquina = negocio.recuperarMaquina("M-1");
+
+	    double cantidadInicial = maquina.getCantidadActual();
+
+	    negocio.consumirCerveza(100, 1, 100);
+
+	    assertEquals(5.0, cliente.getTotalConsumido(), 0.01);
+
+	    assertEquals(cantidadInicial - 100, maquina.getCantidadActual(), 0.01);
+	}
+
 }

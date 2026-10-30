@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class NegocioMejorado {
 
 	private ArrayList<Maquina> maquinas = new ArrayList<Maquina>();
-	private ArrayList<Cliente> clientes;
-	
-	private int ultimoCodigo = 0;
+	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+
+	private int ultimoCodigo = 100;
 
 	public ArrayList<Maquina> getMaquinas() {
 		return maquinas;
@@ -54,12 +54,55 @@ public class NegocioMejorado {
 	}
 
 	public void registrarCliente(String nombre, String cedula) {
-		ultimoCodigo ++;
-		String codigo = "C-" + ultimoCodigo;
+		Cliente cliente = new Cliente(nombre, cedula, "C-" + ultimoCodigo);
 
-	    Cliente cliente = new Cliente(nombre, cedula, codigo);
+	    ultimoCodigo++;
 
 	    clientes.add(cliente);
 	}
 
+	public Cliente buscarClientePorCedula(String cedula) {
+
+		for (int i = 0; i < clientes.size(); i++) {
+			if (clientes.get(i).getCedula().equals(cedula))
+				return clientes.get(i);
+		}
+
+		return null;
+	}
+
+	public Cliente buscarClientePorCodigo(int codigo) {
+
+		for (int i = 0; i < clientes.size(); i++) {
+
+			if (clientes.get(i).getCodigo() == codigo) {
+				return clientes.get(i);
+			}
+
+		}
+
+		return null;
+	}
+
+	public void consumirCerveza(int codigoCliente, int codigoMaquina, double cantidad) {
+
+	    Maquina maquina = recuperarMaquina("M-" + codigoMaquina);
+
+	    Cliente cliente = buscarClientePorCodigo(codigoCliente);
+
+	    double resultado = maquina.servirCerveza(cantidad);
+
+	    registrarConsumo(cliente, resultado);
+
+	}
+	
+	public void registrarConsumo(Cliente cliente, double valor) {
+
+	    double total = cliente.getTotalConsumido();
+
+	    total = total + valor;
+
+	    cliente.setTotalConsumido(total);
+
+	}
 }
